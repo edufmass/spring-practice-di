@@ -1,1 +1,1 @@
-# spring-practice-di
+# Dependency Injection Practice
