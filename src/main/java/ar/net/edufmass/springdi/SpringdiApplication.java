@@ -15,8 +15,9 @@ public class SpringdiApplication {
 		ApplicationContext ctx = SpringApplication.run(SpringdiApplication.class, args);
 
 		MyController myController = (MyController) ctx.getBean("myController");
-		String greetings = myController.sayHello();
-		System.out.println(greetings);
+
+		System.out.println("------ Primary Bean"); // no need Autowire / Qualifier
+		System.out.println(myController.sayHello());
 
 		System.out.println("------ Property");
 		PropertyInjectedController propertyInjectedController = (PropertyInjectedController) ctx.getBean("propertyInjectedController");
