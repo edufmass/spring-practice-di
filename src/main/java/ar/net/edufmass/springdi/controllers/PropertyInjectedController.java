@@ -1,8 +1,13 @@
 package ar.net.edufmass.springdi.controllers;
 
 import ar.net.edufmass.springdi.services.GreetingService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
 
+@Controller
 public class PropertyInjectedController {
+
+    @Autowired
     public GreetingService greetingService;
 
     public String getGreeting(){
