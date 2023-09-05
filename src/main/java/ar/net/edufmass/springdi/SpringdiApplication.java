@@ -1,9 +1,6 @@
 package ar.net.edufmass.springdi;
 
-import ar.net.edufmass.springdi.controllers.ConstructorInjectedController;
-import ar.net.edufmass.springdi.controllers.MyController;
-import ar.net.edufmass.springdi.controllers.PropertyInjectedController;
-import ar.net.edufmass.springdi.controllers.SetterInjectedController;
+import ar.net.edufmass.springdi.controllers.*;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
@@ -13,6 +10,9 @@ public class SpringdiApplication {
 
 	public static void main(String[] args) {
 		ApplicationContext ctx = SpringApplication.run(SpringdiApplication.class, args);
+
+		I18nController i18nController = (I18nController) ctx.getBean("i18nController");
+		System.out.println(i18nController.sayHello());
 
 		MyController myController = (MyController) ctx.getBean("myController");
 
