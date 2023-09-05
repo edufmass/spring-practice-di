@@ -2,6 +2,7 @@ package ar.net.edufmass.springdi.controllers;
 
 import ar.net.edufmass.springdi.services.GreetingService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -11,7 +12,7 @@ public class ConstructorInjectedController {
 
     /* In Constructor Injection Autowired is optional */
     @Autowired
-    public ConstructorInjectedController(GreetingService greetingService) {
+    public ConstructorInjectedController(@Qualifier("constructorGreetingService") GreetingService greetingService) {
         this.greetingService = greetingService;
     }
 
