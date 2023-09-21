@@ -5,6 +5,8 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
 
+// spring boot scanner to load external packages
+//@ComponentScan(basePackages = {"ar.net.edufmass.springdi", "ar.net.edufmass.anotherpackage"})
 @SpringBootApplication
 public class SpringdiApplication {
 
