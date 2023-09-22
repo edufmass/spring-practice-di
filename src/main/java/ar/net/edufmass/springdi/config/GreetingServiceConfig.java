@@ -5,16 +5,15 @@ import ar.com.edufmass.pets.PetServiceFactory;
 import ar.net.edufmass.springdi.repositories.EnglishGreetingRepository;
 import ar.net.edufmass.springdi.repositories.EnglishGreetingRepositoryImpl;
 import ar.net.edufmass.springdi.services.*;
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.Primary;
-import org.springframework.context.annotation.Profile;
+import org.springframework.context.annotation.*;
 
+@ImportResource("classpath:springdi-config.xml") //could be in application
 @Configuration
 public class GreetingServiceConfig {
 
     // method name is the bean name in context
-    @Bean
+
+    //@Bean is picked up from springdi-config.xml
     ConstructorGreetingService constructorGreetingService() {
         return new ConstructorGreetingService();
     }
