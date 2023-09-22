@@ -1,5 +1,7 @@
 package ar.net.edufmass.springdi.config;
 
+import ar.com.edufmass.pets.PetService;
+import ar.com.edufmass.pets.PetServiceFactory;
 import ar.net.edufmass.springdi.repositories.EnglishGreetingRepository;
 import ar.net.edufmass.springdi.repositories.EnglishGreetingRepositoryImpl;
 import ar.net.edufmass.springdi.services.*;
@@ -48,5 +50,23 @@ public class GreetingServiceConfig {
     @Bean("i18nService") // bean name because we can't repeat method name
     I18nSpanishGreetingService i18nSpanishGreetingService() {
         return new I18nSpanishGreetingService();
+    }
+
+    // PETS package
+    @Bean
+    PetServiceFactory petServiceFactory() {
+        return new PetServiceFactory();
+    }
+
+    @Profile({"dog", "default"})
+    @Bean
+    PetService dogPetService(PetServiceFactory petServiceFactory) {
+        return petServiceFactory.getPetService("dog");
+    }
+
+    @Profile("cat")
+    @Bean
+    PetService catPetService(PetServiceFactory petServiceFactory) {
+        return petServiceFactory.getPetService("cat");
     }
 }

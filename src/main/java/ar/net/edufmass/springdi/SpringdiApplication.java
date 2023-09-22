@@ -4,16 +4,22 @@ import ar.net.edufmass.springdi.controllers.*;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.ComponentScan;
 
 // spring boot scanner to load external packages
-//@ComponentScan(basePackages = {"ar.net.edufmass.springdi", "ar.net.edufmass.anotherpackage"})
+@ComponentScan(basePackages = {"ar.net.edufmass.springdi", "ar.com.edufmass.pets"})
 @SpringBootApplication
 public class SpringdiApplication {
 
 	public static void main(String[] args) {
 		ApplicationContext ctx = SpringApplication.run(SpringdiApplication.class, args);
 
+		PetController petController = ctx.getBean("petController", PetController.class);
+		System.out.println("------ Pets package");
+		System.out.println(petController.whichPetIsTheBest());
+
 		I18nController i18nController = (I18nController) ctx.getBean("i18nController");
+		System.out.println("\n------ DI package");
 		System.out.println(i18nController.sayHello());
 
 		MyController myController = (MyController) ctx.getBean("myController");
