@@ -1,6 +1,7 @@
 package ar.net.edufmass.springdi;
 
 import ar.net.edufmass.springdi.config.SpringDiConfiguration;
+import ar.net.edufmass.springdi.config.SpringDiConstructorConfiguration;
 import ar.net.edufmass.springdi.controllers.*;
 import ar.net.edufmass.springdi.datasource.FakeDataSource;
 import ar.net.edufmass.springdi.services.PrototypeBean;
@@ -67,6 +68,12 @@ public class SpringdiApplication {
 		System.out.println(springDiConfiguration.getUsername());
 		System.out.println(springDiConfiguration.getPassword());
 		System.out.println(springDiConfiguration.getJdbcurl());
+
+		System.out.println("------ Config Constructor Props Bean ");
+		SpringDiConstructorConfiguration springDiConstructorConfiguration = ctx.getBean(SpringDiConstructorConfiguration.class);
+		System.out.println(springDiConstructorConfiguration.getUsername());
+		System.out.println(springDiConstructorConfiguration.getPassword());
+		System.out.println(springDiConstructorConfiguration.getJdbcurl());
 	}
 
 }

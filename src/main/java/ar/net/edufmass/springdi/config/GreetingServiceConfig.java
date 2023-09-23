@@ -7,9 +7,11 @@ import ar.net.edufmass.springdi.repositories.EnglishGreetingRepository;
 import ar.net.edufmass.springdi.repositories.EnglishGreetingRepositoryImpl;
 import ar.net.edufmass.springdi.services.*;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.*;
 
 //@PropertySource("classpath:datasource.properties") // needed when config is not loaded from application.properties
+@EnableConfigurationProperties(SpringDiConstructorConfiguration.class)
 @ImportResource("classpath:springdi-config.xml") //could be in application
 @Configuration
 public class GreetingServiceConfig {
@@ -17,11 +19,11 @@ public class GreetingServiceConfig {
     // method name is the bean name in context
 
     @Bean
-    FakeDataSource fakeDataSource(SpringDiConfiguration springDiConfiguration) {
+    FakeDataSource fakeDataSource(SpringDiConstructorConfiguration springDiConstructorConfiguration) {
         FakeDataSource fakeDataSource = new FakeDataSource();
-        fakeDataSource.setUsername(springDiConfiguration.getUsername());
-        fakeDataSource.setPassword(springDiConfiguration.getPassword());
-        fakeDataSource.setJdbcurl(springDiConfiguration.getJdbcurl());
+        fakeDataSource.setUsername(springDiConstructorConfiguration.getUsername());
+        fakeDataSource.setPassword(springDiConstructorConfiguration.getPassword());
+        fakeDataSource.setJdbcurl(springDiConstructorConfiguration.getJdbcurl());
         return fakeDataSource;
     }
 
