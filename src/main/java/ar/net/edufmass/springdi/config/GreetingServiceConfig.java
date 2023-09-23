@@ -17,13 +17,11 @@ public class GreetingServiceConfig {
     // method name is the bean name in context
 
     @Bean
-    FakeDataSource fakeDataSource(@Value("${arnet.username}") String username,
-                                  @Value("${arnet.password}") String password,
-                                  @Value("${arnet.jdbcurl}") String jdbcurl) {
+    FakeDataSource fakeDataSource(SpringDiConfiguration springDiConfiguration) {
         FakeDataSource fakeDataSource = new FakeDataSource();
-        fakeDataSource.setUsername(username);
-        fakeDataSource.setPassword(password);
-        fakeDataSource.setJdbcurl(jdbcurl);
+        fakeDataSource.setUsername(springDiConfiguration.getUsername());
+        fakeDataSource.setPassword(springDiConfiguration.getPassword());
+        fakeDataSource.setJdbcurl(springDiConfiguration.getJdbcurl());
         return fakeDataSource;
     }
 

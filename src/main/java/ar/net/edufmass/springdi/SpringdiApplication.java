@@ -63,10 +63,10 @@ public class SpringdiApplication {
 		System.out.println(fakeDataSource.getJdbcurl());
 
 		System.out.println("------ Config Props Bean ");
-		SpringDiConfiguration sfgConfiguration = ctx.getBean(SpringDiConfiguration.class);
-		System.out.println(sfgConfiguration.getUsername());
-		System.out.println(sfgConfiguration.getPassword());
-		System.out.println(sfgConfiguration.getJdbcurl());
+		SpringDiConfiguration springDiConfiguration = ctx.getBean(SpringDiConfiguration.class);
+		System.out.println(springDiConfiguration.getUsername());
+		System.out.println(springDiConfiguration.getPassword());
+		System.out.println(springDiConfiguration.getJdbcurl());
 	}
 
 }
