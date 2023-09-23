@@ -9,7 +9,7 @@ import ar.net.edufmass.springdi.services.*;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.*;
 
-@PropertySource("classpath:datasource.properties") // this is for Spring
+//@PropertySource("classpath:datasource.properties") // needed when config is not loaded from application.properties
 @ImportResource("classpath:springdi-config.xml") //could be in application
 @Configuration
 public class GreetingServiceConfig {
