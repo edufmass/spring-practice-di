@@ -2,16 +2,30 @@ package ar.net.edufmass.springdi.config;
 
 import ar.com.edufmass.pets.PetService;
 import ar.com.edufmass.pets.PetServiceFactory;
+import ar.net.edufmass.springdi.datasource.FakeDataSource;
 import ar.net.edufmass.springdi.repositories.EnglishGreetingRepository;
 import ar.net.edufmass.springdi.repositories.EnglishGreetingRepositoryImpl;
 import ar.net.edufmass.springdi.services.*;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.*;
 
+@PropertySource("classpath:datasource.properties") // this is for Spring
 @ImportResource("classpath:springdi-config.xml") //could be in application
 @Configuration
 public class GreetingServiceConfig {
 
     // method name is the bean name in context
+
+    @Bean
+    FakeDataSource fakeDataSource(@Value("${arnet.username}") String username,
+                                  @Value("${arnet.password}") String password,
+                                  @Value("${arnet.jdbcurl}") String jdbcurl) {
+        FakeDataSource fakeDataSource = new FakeDataSource();
+        fakeDataSource.setUsername(username);
+        fakeDataSource.setPassword(password);
+        fakeDataSource.setJdbcurl(jdbcurl);
+        return fakeDataSource;
+    }
 
     //@Bean is picked up from springdi-config.xml
     ConstructorGreetingService constructorGreetingService() {

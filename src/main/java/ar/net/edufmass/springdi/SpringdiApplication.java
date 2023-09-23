@@ -1,6 +1,7 @@
 package ar.net.edufmass.springdi;
 
 import ar.net.edufmass.springdi.controllers.*;
+import ar.net.edufmass.springdi.datasource.FakeDataSource;
 import ar.net.edufmass.springdi.services.PrototypeBean;
 import ar.net.edufmass.springdi.services.SingletonBean;
 import org.springframework.boot.SpringApplication;
@@ -52,6 +53,13 @@ public class SpringdiApplication {
 		System.out.println(prototypeBean1.getMyScope());
 		PrototypeBean prototypeBean2 = ctx.getBean(PrototypeBean.class);
 		System.out.println(prototypeBean2.getMyScope());
+
+		System.out.println("------ DataSource.properties ");
+
+		FakeDataSource fakeDataSource = ctx.getBean(FakeDataSource.class);
+		System.out.println(fakeDataSource.getUsername());
+		System.out.println(fakeDataSource.getPassword());
+		System.out.println(fakeDataSource.getJdbcurl());
 	}
 
 }
