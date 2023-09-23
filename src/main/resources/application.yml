@@ -3,8 +3,16 @@ spring:
     active:
       - dog
       - EN
-      - qa
+      - prod
 arnet:
   username: ymlSuperuser
   password: ymlDbPassword
   jdbcurl: ymlSomeUrlForDataBase
+
+---
+spring:
+  profile: prod
+arnet:
+  username: PRODuserFromYaml
+  password: PRODpassFromYaml
+  jdbcurl: PRODurlFromYamlForDataBase
