@@ -1,0 +1,10 @@
+spring:
+  profiles:
+    active:
+      - dog
+      - EN
+      - qa
+arnet:
+  username: ymlSuperuser
+  password: ymlDbPassword
+  jdbcurl: ymlSomeUrlForDataBase

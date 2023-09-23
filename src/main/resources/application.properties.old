@@ -1,0 +1,4 @@
+#spring.profiles.active=dog,EN,dev
+#arnet.username=superuser
+#arnet.password=dbPassword
+#arnet.jdbcurl=someUrlForDataBase

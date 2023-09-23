@@ -1,0 +1,4 @@
+arnet:
+  username: QAuserFromYaml
+  password: QApassFromYaml
+  jdbcurl: QAurlFromYamlForDataBase

@@ -1,0 +1,4 @@
+arnet:
+  username: DEVuserFromYaml
+  password: DEVpassFromYaml
+  jdbcurl: DEVurlFromYamlForDataBase
