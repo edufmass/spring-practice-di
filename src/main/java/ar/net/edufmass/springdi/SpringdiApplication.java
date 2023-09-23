@@ -1,5 +1,6 @@
 package ar.net.edufmass.springdi;
 
+import ar.net.edufmass.springdi.config.SpringDiConfiguration;
 import ar.net.edufmass.springdi.controllers.*;
 import ar.net.edufmass.springdi.datasource.FakeDataSource;
 import ar.net.edufmass.springdi.services.PrototypeBean;
@@ -60,6 +61,12 @@ public class SpringdiApplication {
 		System.out.println(fakeDataSource.getUsername());
 		System.out.println(fakeDataSource.getPassword());
 		System.out.println(fakeDataSource.getJdbcurl());
+
+		System.out.println("------ Config Props Bean ");
+		SpringDiConfiguration sfgConfiguration = ctx.getBean(SpringDiConfiguration.class);
+		System.out.println(sfgConfiguration.getUsername());
+		System.out.println(sfgConfiguration.getPassword());
+		System.out.println(sfgConfiguration.getJdbcurl());
 	}
 
 }
